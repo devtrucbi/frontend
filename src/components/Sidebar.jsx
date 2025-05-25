@@ -13,7 +13,7 @@ const Sidebar = () => {
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      axios.get('https://backend-o3rljta7f-dang-khois-projects.vercel.app/api/users/me', {
+      axios.get('https://backend-3jabm4vln-dang-khois-projects.vercel.app/api/users/me', {
         headers: { Authorization: `Bearer ${token}` }
       })
         .then(res => {

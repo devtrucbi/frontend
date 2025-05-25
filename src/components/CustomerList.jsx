@@ -20,7 +20,7 @@ const CustomerList = () => {
 
   const fetchCustomers = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/customers', {
+      const res = await axios.get('https://backend-3jabm4vln-dang-khois-projects.vercel.app/api/customers', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       setCustomers(res.data);
@@ -46,12 +46,12 @@ const CustomerList = () => {
     e.preventDefault();
     try {
       if (editingId) {
-        await axios.put(`http://localhost:5000/api/customers/${editingId}`, form, {
+        await axios.put(`https://backend-3jabm4vln-dang-khois-projects.vercel.app/api/customers/${editingId}`, form, {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         });
         setEditingId(null);
       } else {
-        await axios.post('http://localhost:5000/api/customers', form, {
+        await axios.post('https://backend-3jabm4vln-dang-khois-projects.vercel.app/api/customers', form, {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         });
       }
@@ -91,7 +91,7 @@ const CustomerList = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://backend-o3rljta7f-dang-khois-projects.vercel.app/api/customers/${id}`, {
+      await axios.delete(`https://backend-3jabm4vln-dang-khois-projects.vercel.app/api/customers/${id}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       fetchCustomers();

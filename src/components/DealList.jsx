@@ -28,7 +28,7 @@ const DealList = () => {
 
   const fetchCustomers = async () => {
     try {
-      const res = await axios.get('https://backend-o3rljta7f-dang-khois-projects.vercel.app/api/customers', {
+      const res = await axios.get('https://backend-3jabm4vln-dang-khois-projects.vercel.app/api/customers', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       setCustomers(res.data);
@@ -45,7 +45,7 @@ const DealList = () => {
 
   const fetchDeals = async () => {
     try {
-      const res = await axios.get('https://backend-o3rljta7f-dang-khois-projects.vercel.app/api/deals', {
+      const res = await axios.get('https://backend-3jabm4vln-dang-khois-projects.vercel.app/api/deals', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       setDeals(res.data);
@@ -64,12 +64,12 @@ const DealList = () => {
     e.preventDefault();
     try {
       if (editingId) {
-        await axios.put(`https://backend-o3rljta7f-dang-khois-projects.vercel.app/api/deals/${editingId}`, form, {
+        await axios.put(`https://backend-3jabm4vln-dang-khois-projects.vercel.app/api/deals/${editingId}`, form, {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         });
         setEditingId(null);
       } else {
-        await axios.post('https://backend-o3rljta7f-dang-khois-projects.vercel.app/api/deals', form, {
+        await axios.post('https://backend-3jabm4vln-dang-khois-projects.vercel.app/api/deals', form, {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         });
       }
@@ -98,7 +98,7 @@ const DealList = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://backend-o3rljta7f-dang-khois-projects.vercel.app/api/deals/${id}`, {
+      await axios.delete(`https://backend-3jabm4vln-dang-khois-projects.vercel.app/api/deals/${id}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       fetchDeals();

@@ -12,9 +12,9 @@ const Dashboard = () => {
       try {
         const token = localStorage.getItem('token');
         const [customers, tasks, deals] = await Promise.all([
-          axios.get('https://backend-o3rljta7f-dang-khois-projects.vercel.app/api/customers', { headers: { Authorization: `Bearer ${token}` } }),
-          axios.get('https://backend-o3rljta7f-dang-khois-projects.vercel.app/api/tasks', { headers: { Authorization: `Bearer ${token}` } }),
-          axios.get('https://backend-o3rljta7f-dang-khois-projects.vercel.app/api/deals', { headers: { Authorization: `Bearer ${token}` } })
+          axios.get('https://backend-3jabm4vln-dang-khois-projects.vercel.app/api/customers', { headers: { Authorization: `Bearer ${token}` } }),
+          axios.get('https://backend-3jabm4vln-dang-khois-projects.vercel.app/api/tasks', { headers: { Authorization: `Bearer ${token}` } }),
+          axios.get('https://backend-3jabm4vln-dang-khois-projects.vercel.app/api/deals', { headers: { Authorization: `Bearer ${token}` } })
         ]);
         setStats({
           customers: customers.data.length,

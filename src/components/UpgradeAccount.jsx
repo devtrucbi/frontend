@@ -15,7 +15,7 @@ const UpgradeAccount = () => {
     e.preventDefault();
     try {
       const userId = localStorage.getItem('userId');
-      const res = await axios.post('https://backend-o3rljta7f-dang-khois-projects.vercel.app/api/users/upgrade', { userId, promoCode });
+      const res = await axios.post('https://backend-3jabm4vln-dang-khois-projects.vercel.app/api/users/upgrade', { userId, promoCode });
       setSuccess(res.data.message);
       setTimeout(() => navigate('/dashboard'), 2000);
     } catch (err) {

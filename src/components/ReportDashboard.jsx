@@ -31,7 +31,7 @@ const ReportDashboard = () => {
 
   const fetchReports = async () => {
     try {
-      const res = await axios.get('https://backend-o3rljta7f-dang-khois-projects.vercel.app/api/reports', {
+      const res = await axios.get('https://backend-3jabm4vln-dang-khois-projects.vercel.app/api/reports', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       setReports(res.data);
@@ -58,9 +58,9 @@ const ReportDashboard = () => {
   const fetchAnalyticsData = async () => {
     try {
       const [customers, tasks, deals] = await Promise.all([
-        axios.get('https://backend-o3rljta7f-dang-khois-projects.vercel.app/api/customers', { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }),
-        axios.get('https://backend-o3rljta7f-dang-khois-projects.vercel.app/api/tasks', { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }),
-        axios.get('https://backend-o3rljta7f-dang-khois-projects.vercel.app/api/deals', { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } })
+        axios.get('https://backend-3jabm4vln-dang-khois-projects.vercel.app/api/customers', { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }),
+        axios.get('https://backend-3jabm4vln-dang-khois-projects.vercel.app/api/tasks', { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }),
+        axios.get('https://backend-3jabm4vln-dang-khois-projects.vercel.app/api/deals', { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } })
       ]);
 
       // Tạo dữ liệu phân tích theo thời gian (theo tháng)
@@ -114,7 +114,7 @@ const ReportDashboard = () => {
 
   const fetchUserRole = async () => {
     try {
-      const res = await axios.get('https://backend-o3rljta7f-dang-khois-projects.vercel.app/api/users/me', {
+      const res = await axios.get('https://backend-3jabm4vln-dang-khois-projects.vercel.app/api/users/me', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       setUserRole(res.data.role);

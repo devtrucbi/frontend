@@ -23,7 +23,7 @@ const UserManagement = () => {
 
   const fetchUsers = async () => {
     try {
-      const res = await axios.get('https://backend-o3rljta7f-dang-khois-projects.vercel.app/api/users', {
+      const res = await axios.get('https://backend-3jabm4vln-dang-khois-projects.vercel.app/api/users', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       setUsers(res.data);
@@ -43,7 +43,7 @@ const UserManagement = () => {
 
   const handleRoleChange = async (userId, newRole) => {
     try {
-      await axios.put(`https://backend-o3rljta7f-dang-khois-projects.vercel.app/api/users/${userId}/role`, { role: newRole }, {
+      await axios.put(`https://backend-3jabm4vln-dang-khois-projects.vercel.app/api/users/${userId}/role`, { role: newRole }, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       fetchUsers(); // Cập nhật danh sách sau khi thay đổi vai trò

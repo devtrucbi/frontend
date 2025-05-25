@@ -19,7 +19,7 @@ const Register = () => {
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      axios.get('https://backend-o3rljta7f-dang-khois-projects.vercel.app/api/users/me', {
+      axios.get('https://backend-3jabm4vln-dang-khois-projects.vercel.app/api/users/me', {
         headers: { Authorization: `Bearer ${token}` }
       })
         .then(res => {
@@ -38,7 +38,7 @@ const Register = () => {
   e.preventDefault();
   console.log('Register Payload:', { email, password, name });
   try {
-    await axios.post('https://backend-o3rljta7f-dang-khois-projects.vercel.app/api/users/register', { email, password, name });
+    await axios.post('https://backend-3jabm4vln-dang-khois-projects.vercel.app/api/users/register', { email, password, name });
     navigate('/');
   } catch (err) {
     console.log('Register Error:', err.response?.data);

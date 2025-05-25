@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import axios from 'axios';
-import io from 'socket.io-client'; // Thêm Socket.io client
+import io from 'socket.io-client';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Sidebar from './Sidebar';
 
-const socket = io('https://backend-o3rljta7f-dang-khois-projects.vercel.app'); // Kết nối tới backend
+const socket = io('https://backend-3jabm4vln-dang-khois-projects.vercel.app', {
+  auth: {
+    token: localStorage.getItem('token')
+  }
+});
 
 const NotificationList = () => {
   const [notifications, setNotifications] = useState([]);
@@ -14,9 +18,8 @@ const NotificationList = () => {
   useEffect(() => {
     fetchNotifications();
 
-    // Lắng nghe thông báo thời gian thực
     socket.on('newNotification', (data) => {
-      const userId = localStorage.getItem('userId'); // Lấy userId từ localStorage (cần lưu khi đăng nhập)
+      const userId = localStorage.getItem('userId');
       if (data.userId === userId) {
         setNotifications((prev) => [...prev, { message: data.message, is_read: false, created_at: new Date() }]);
       }
@@ -29,7 +32,7 @@ const NotificationList = () => {
 
   const fetchNotifications = async () => {
     try {
-      const res = await axios.get('https://backend-o3rljta7f-dang-khois-projects.vercel.app/api/notifications', {
+      const res = await axios.get('https://backend-3jabm4vln-dang-khois-projects.vercel.app/api/notifications', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       setNotifications(res.data);
@@ -40,7 +43,7 @@ const NotificationList = () => {
 
   const markAsRead = async (id) => {
     try {
-      await axios.put(`https://backend-o3rljta7f-dang-khois-projects.vercel.app/api/notifications/${id}`, {}, {
+      await axios.put(`https://backend-3jabm4vln-dang-khois-projects.vercel.app/api/notifications/${id}`, {}, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       fetchNotifications();

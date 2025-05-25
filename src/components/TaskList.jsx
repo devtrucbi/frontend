@@ -28,7 +28,7 @@ const TaskList = () => {
 
   const fetchCustomers = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/customers', {
+      const res = await axios.get('https://backend-3jabm4vln-dang-khois-projects.vercel.app/api/customers', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       setCustomers(res.data);
@@ -45,7 +45,7 @@ const TaskList = () => {
 
   const fetchTasks = async () => {
     try {
-      const res = await axios.get('https://backend-o3rljta7f-dang-khois-projects.vercel.app/api/tasks', {
+      const res = await axios.get('https://backend-3jabm4vln-dang-khois-projects.vercel.app/api/tasks', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       setTasks(res.data);
@@ -64,12 +64,12 @@ const TaskList = () => {
     e.preventDefault();
     try {
       if (editingId) {
-        await axios.put(`https://backend-o3rljta7f-dang-khois-projects.vercel.app/api/tasks/${editingId}`, form, {
+        await axios.put(`https://backend-3jabm4vln-dang-khois-projects.vercel.app/api/tasks/${editingId}`, form, {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         });
         setEditingId(null);
       } else {
-        await axios.post('https://backend-o3rljta7f-dang-khois-projects.vercel.app/api/tasks', form, {
+        await axios.post('https://backend-3jabm4vln-dang-khois-projects.vercel.app/api/tasks', form, {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         });
       }
@@ -99,7 +99,7 @@ const TaskList = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://backend-o3rljta7f-dang-khois-projects.vercel.app/api/tasks/${id}`, {
+      await axios.delete(`https://backend-3jabm4vln-dang-khois-projects.vercel.app/api/tasks/${id}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       fetchTasks();
